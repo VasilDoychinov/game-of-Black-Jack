@@ -1,1 +1,1 @@
-# game-of-Black-Jack
+# game-of-Black-Jack (plain example)
