@@ -1,0 +1,29 @@
+// internal Dependencies for building:    game_BJ.exe
+
+game_BJ.h:     "classCard.h" "classHand.h" "classPlayer.h" "llib\vArray.h"
+
+classPlayer.h: "classHand.h"
+
+classHand.h:   "classCard.h" "llib\vArray.h"
+
+vArray.h:      "llib\class_RAI.h"
+
+game_BJ.obj:     game_BJ.cpp "game_BJ.h" "classCard.h" "classHand.h" "llib\ownMenu.h" "llib\ownCIN.h"
+
+class_Card.obj:  class_Card.cpp "classCard.h"  
+
+classPlayer.obj: classPlayer.cpp "classPlayer.h" "classHand.h" "llib\ownMenu.h"
+
+classHand.obj:   classHand.cpp "classHand.h" "llib\ownMenu.h"
+
+ownMenu.obj: llib\ownMenu.cpp llib\ownMenu.h llib\ownCIN.h
+ownCIN.obj:  llib\ownCIN.cpp llib\ownCIN.h
+
+library_list1: ownMenu.obj ownCIN.obj [vArray.obj]
+library_list2: game_BJ.obj class_Card.obj classPlayer.obj classHand.obj 
+
+game_BJ.exe: $library_list1 $library_list2
+
+
+
+
